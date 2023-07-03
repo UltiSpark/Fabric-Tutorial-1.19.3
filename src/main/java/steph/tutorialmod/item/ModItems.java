@@ -14,7 +14,7 @@ public class ModItems {
     public static final Item CITRINE = registerItem("citrine",
             new Item(new FabricItemSettings()));
 
-    public static final Item GREENGUY = registerItem("greenguy",
+    public static final Item Raw_CITRINE = registerItem("raw_citrine",
             new Item(new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item){
@@ -24,7 +24,10 @@ public class ModItems {
 
     public static void addItemstoItemGroup(){
         addToItemsGroup(ItemGroups.INGREDIENTS, CITRINE);
-        addToItemsGroup(ItemGroups.FUNCTIONAL, GREENGUY);
+        addToItemsGroup(ItemGroups.INGREDIENTS, Raw_CITRINE);
+
+        addToItemsGroup(ModItemGroup.CITRINE, CITRINE);
+        addToItemsGroup(ModItemGroup.CITRINE, Raw_CITRINE);
     }
     private static void addToItemsGroup(ItemGroup group, Item item) {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
